@@ -224,7 +224,7 @@ namespace GameServer
 				{
 					if (_client.id != id)
 					{
-						ServerSend.SpawnPlayer(id, _client.player);
+						ServerSend.SpawnPlayer(id, _client.player, Server.serverTimer.timeRemaining);
 					}
 				}
 			}
@@ -234,7 +234,7 @@ namespace GameServer
 			{
 				if (_client.player != null)
 				{
-					ServerSend.SpawnPlayer(_client.id, player);
+					ServerSend.SpawnPlayer(_client.id, player, Server.serverTimer.timeRemaining);
 				}
 			}
 		}
