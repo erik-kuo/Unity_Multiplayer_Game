@@ -103,6 +103,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   animator: {fileID: 799648371616501377}
+  startTimeBtwShots: 0.25
+  offset: -20
 --- !u!50 &799648371616501378
 Rigidbody2D:
   serializedVersion: 4
@@ -206,7 +208,6 @@ MonoBehaviour:
   animation: {fileID: 0}
   cs: 0
   rb: {fileID: 799648371616501378}
-  increment: 10
   coalSlider: {fileID: 7789632938591984039}
   waterSlider: {fileID: 7789632937742127571}
   metalSlider: {fileID: 7789632938283199969}
