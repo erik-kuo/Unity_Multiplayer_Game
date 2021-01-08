@@ -13,7 +13,6 @@ namespace GameServer
 		public static Dictionary<int, Client> clients = new Dictionary<int, Client>();
 		public delegate void PacketHandler(int _fromClient, Packet _packet);
 		public static Dictionary<int, PacketHandler> packetHandlers;
-		public static ServerTimer serverTimer = new ServerTimer();
 
 		private static TcpListener tcpListener;
 		private static UdpClient udpListener;
