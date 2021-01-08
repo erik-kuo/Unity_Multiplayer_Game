@@ -113,6 +113,7 @@ public class ClientHandle : MonoBehaviour
 	public static void EndGame(Packet _packet)
 	{
 		Debug.Log("EndGame!");
+		Application.Quit();
 	}
 	/*
 	public static void ProjectilePosition(Packet _packet)
