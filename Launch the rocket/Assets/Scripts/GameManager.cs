@@ -66,6 +66,9 @@ public class GameManager : MonoBehaviour
 
 		_player.GetComponent<PlayerManager>().Initialize(_id, _red);
 		players.Add(_id, _player.GetComponent<PlayerManager>());
-		players[_id].astronaut.gameObject.GetComponent<actionAni>().UpdateAnimation((CharacterStats)_cs);
+		if (_red)
+		{
+			players[_id].astronaut.gameObject.GetComponent<actionAni>().UpdateAnimation((CharacterStats)_cs);
+		}
 	}
 }

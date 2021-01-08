@@ -22,11 +22,13 @@ public class BlueAni : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		/*
 	  if(Input.GetButtonDown("Horizontal")||Input.GetButtonDown("Vertical")){
 		cs = BlueCharacterStats.Walk;
 	  }else if(Input.GetButtonUp("Horizontal")||Input.GetButtonUp("Vertical")){
 		cs = BlueCharacterStats.Idle;
 	  }
+		*/
 	  if(cs == BlueCharacterStats.Idle){
 		anim.SetBool("walk",false);
 	  }

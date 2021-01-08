@@ -135,4 +135,19 @@ public class ClientHandle : MonoBehaviour
 			Debug.Log($"Update player {_id} {(CharacterStats)_cs} animation ");
 		}
     }
+
+	public static void CharacterMovement(Packet _packet)
+	{
+		int _id = _packet.ReadInt();
+		int _movement = _packet.ReadInt();
+
+		if (GameManager.players[_id].astronaut.red)
+		{
+			GameManager.players[_id].astronaut.gameObject.GetComponent<actionAni>().cs = (CharacterStats)_movement;
+		}
+		else
+        {
+			GameManager.players[_id].astronaut.gameObject.GetComponent<BlueAni>().cs = (BlueCharacterStats)_movement;
+		}
+	}
 }

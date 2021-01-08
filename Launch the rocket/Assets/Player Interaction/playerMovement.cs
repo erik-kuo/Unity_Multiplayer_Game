@@ -21,6 +21,15 @@ public class playerMovement : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		if (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical"))
+		{
+			ClientSend.CharacterMovement((int)CharacterStats.Walk);
+		}
+		else if (Input.GetButtonUp("Horizontal") || Input.GetButtonUp("Vertical"))
+		{
+			ClientSend.CharacterMovement((int)CharacterStats.Idle);
+		}
+
 		movement.x = Input.GetAxisRaw("Horizontal");
 		movement.y = Input.GetAxisRaw("Vertical");
 		animator.SetFloat("Horizontal", movement.x);

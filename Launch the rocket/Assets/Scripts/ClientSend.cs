@@ -114,5 +114,15 @@ public class ClientSend : MonoBehaviour
 			SendTCPData(_packet);
 		}
 	}
+
+	public static void CharacterMovement(int _cs)
+	{
+		using (Packet _packet = new Packet((int)ClientPackets.characterMovement))
+		{
+			_packet.Write(_cs);
+
+			SendTCPData(_packet);
+		}
+	}
 	#endregion
 }
