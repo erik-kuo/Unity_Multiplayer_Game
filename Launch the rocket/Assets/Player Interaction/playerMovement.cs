@@ -11,6 +11,9 @@ public class playerMovement : MonoBehaviour
 	Vector2 movement;
 
 	private bool isUsingWeapon = false;
+	private float timeBtwShots;
+	public float startTimeBtwShots;
+	public float offset;
 
 	// Start is called before the first frame update
 	void Start()
@@ -53,6 +56,26 @@ public class playerMovement : MonoBehaviour
 					ClientSend.PlayerUsingWeapon(false);
 					isUsingWeapon = false;
 				}
+			}
+		}
+
+		if (isUsingWeapon)
+        {
+			Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+			float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+			ClientSend.WeaponRotation(Quaternion.Euler(0f, 0f, rotZ + offset));
+
+			if (timeBtwShots <= 0)
+			{
+				if (Input.GetMouseButton(0))
+				{
+					ClientSend.PlayerShoot();
+					timeBtwShots = startTimeBtwShots;
+				}
+			}
+			else
+			{
+				timeBtwShots -= Time.deltaTime;
 			}
 		}
 
