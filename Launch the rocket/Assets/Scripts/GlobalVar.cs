@@ -17,4 +17,5 @@ public static class GlobalVar
             ip = value;
         }
     }
+    
 }
