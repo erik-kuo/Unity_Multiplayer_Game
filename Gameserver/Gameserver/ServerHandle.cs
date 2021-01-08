@@ -72,6 +72,7 @@ namespace GameServer
 		public static void CharacterStatus(int _fromClient, Packet _packet)
         {
 			int _status = _packet.ReadInt();
+			Server.clients[_fromClient].player.charaterStatus = _status;
 			ServerSend.UpdateAnimation(_fromClient, _status);
         }
 	}

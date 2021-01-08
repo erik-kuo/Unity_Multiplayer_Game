@@ -224,7 +224,7 @@ namespace GameServer
 				{
 					if (_client.id != id)
 					{
-						ServerSend.SpawnPlayer(id, _client.player, Server.serverTimer.timeRemaining);
+						ServerSend.SpawnPlayer(id, _client.player, GameLogic.serverTimer.timeRemaining);
 					}
 				}
 			}
@@ -234,9 +234,12 @@ namespace GameServer
 			{
 				if (_client.player != null)
 				{
-					ServerSend.SpawnPlayer(_client.id, player, Server.serverTimer.timeRemaining);
+					ServerSend.SpawnPlayer(_client.id, player, GameLogic.serverTimer.timeRemaining);
 				}
 			}
+			ServerSend.CPBAmount(" Water", GameLogic.progressBar[" Water"]);
+			ServerSend.CPBAmount("Coal", GameLogic.progressBar["Coal"]);
+			ServerSend.CPBAmount(" Metal", GameLogic.progressBar[" Metal"]);
 		}
 
 		/// <summary>Disconnects the client and stops all network traffic.</summary>

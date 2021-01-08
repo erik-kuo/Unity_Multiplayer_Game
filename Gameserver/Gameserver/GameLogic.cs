@@ -10,6 +10,8 @@ namespace GameServer
 		private static int lastPlayerCount = 0;
 		private static int newPlayerCount = 0;
 
+		public static ServerTimer serverTimer = new ServerTimer();
+
 		public static Dictionary<string, float> progressBar = new Dictionary<string, float>();
 		public static float OverallProgress = 0;
 
@@ -19,6 +21,16 @@ namespace GameServer
 			progressBar.Add(" Water", 0);
 			progressBar.Add(" Metal", 0);
         }
+
+		public static void Reset()
+        {
+			progressBar["Coal"] = 0;
+			progressBar[" Water"] = 0;
+			progressBar[" Metal"] = 0;
+
+			serverTimer.Reset();
+        }
+
 		/// <summar
 		/// y>Runs all game logic.</summary>
 		public static void Update()
@@ -27,7 +39,7 @@ namespace GameServer
 			if (OverallProgress == 100)
             {
 				ServerSend.EndGame();
-				Server.serverTimer.Reset();
+				Reset();
             }
 
 			newPlayerCount = 0;
@@ -42,14 +54,14 @@ namespace GameServer
 			}
 			if (lastPlayerCount == 0 && newPlayerCount > 0 )
             {
-				Server.serverTimer.Start();
+				serverTimer.Start();
             }
 			if (lastPlayerCount > 0 && newPlayerCount == 0)
             {
-				Server.serverTimer.Reset();
+				Reset();
             }
 			lastPlayerCount = newPlayerCount;
-			Server.serverTimer.Update();
+			serverTimer.Update();
 			/*
 			OverallProgress = Math.Min(progressBar["Coal"], Math.Min(progressBar["Water"], progressBar["Metal"]));
 			if (OverallProgress > 100) // and time remain > red win 

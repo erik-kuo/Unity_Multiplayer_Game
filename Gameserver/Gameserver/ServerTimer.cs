@@ -32,7 +32,7 @@ namespace GameServer
                 else
                 {
                     Console.WriteLine("Time has run out!");
-                    Reset();
+                    GameLogic.Reset();
                 }
             }
         }

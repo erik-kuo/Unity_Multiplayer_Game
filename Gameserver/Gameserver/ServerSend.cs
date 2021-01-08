@@ -112,6 +112,7 @@ namespace GameServer
 				_packet.Write(_player.position);
 				_packet.Write(_player.rotation);
 				_packet.Write(_timeRemaining);
+				_packet.Write(_player.charaterStatus);
 
 				SendTCPData(_toClient, _packet);
 			}
