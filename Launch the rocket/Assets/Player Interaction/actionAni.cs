@@ -15,7 +15,6 @@ public class actionAni : MonoBehaviour
 	public Animation animation;
 	public CharacterStats cs;
 	public Rigidbody2D rb;
-	public int increment;
 
 	public CPB coalSlider;
 	public CPB waterSlider;
