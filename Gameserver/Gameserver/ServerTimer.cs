@@ -6,7 +6,7 @@ namespace GameServer
 {
     class ServerTimer
     {
-        public float timeRemaining = 10;
+        public float timeRemaining = 300;
         public bool timerIsRunning = false;
 
         public void Start()
@@ -17,7 +17,7 @@ namespace GameServer
 
         public void Reset()
         {
-            timeRemaining = 10;
+            timeRemaining = 300;
             timerIsRunning = false;
         }
 
