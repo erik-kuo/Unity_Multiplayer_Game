@@ -17,7 +17,8 @@ namespace GameServer
 		playerWeaponState,
 		updateWeaponRotation,
 		spawnProjectile,
-		spawnBomb
+		spawnBomb,
+		endGame,
 	}
 
 	/// <summary>Sent from client to server.</summary>
