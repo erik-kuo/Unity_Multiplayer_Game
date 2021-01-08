@@ -12,6 +12,8 @@ namespace GameServer
 			Console.Title = "Game Server";
 			isRunning = true;
 
+			GameLogic.Init();
+
 			Thread mainThread = new Thread(new ThreadStart(MainThread));
 			mainThread.Start();
 

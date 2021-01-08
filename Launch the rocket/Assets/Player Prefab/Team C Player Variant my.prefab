@@ -22,6 +22,26 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 799648372060647967, guid: 2adc8d430c7474e48b8dcdce1764a2e2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 799648372659956301, guid: 2adc8d430c7474e48b8dcdce1764a2e2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 799648372659956301, guid: 2adc8d430c7474e48b8dcdce1764a2e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 799648372791389223, guid: 2adc8d430c7474e48b8dcdce1764a2e2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 799648373129422404, guid: 2adc8d430c7474e48b8dcdce1764a2e2,
         type: 3}
       propertyPath: m_RootOrder
@@ -80,7 +100,7 @@ PrefabInstance:
     - target: {fileID: 799648373129422405, guid: 2adc8d430c7474e48b8dcdce1764a2e2,
         type: 3}
       propertyPath: m_Name
-      value: Team C Player Variant 1
+      value: Team C Player Variant my
       objectReference: {fileID: 0}
     - target: {fileID: 6094798384567109947, guid: 2adc8d430c7474e48b8dcdce1764a2e2,
         type: 3}
@@ -90,7 +110,7 @@ PrefabInstance:
     - target: {fileID: 8503795584579882986, guid: 2adc8d430c7474e48b8dcdce1764a2e2,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2adc8d430c7474e48b8dcdce1764a2e2, type: 3}
