@@ -131,6 +131,7 @@ public class ClientHandle : MonoBehaviour
 		if (GameManager.players[_id].astronaut.red)
         {
 			GameManager.players[_id].astronaut.gameObject.GetComponent<actionAni>().UpdateAnimation((CharacterStats)_cs);
-        }
+			Debug.Log($"Update player {_id} {(CharacterStats)_cs} animation ");
+		}
     }
 }
