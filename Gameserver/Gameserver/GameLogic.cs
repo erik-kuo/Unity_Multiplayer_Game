@@ -27,6 +27,8 @@ namespace GameServer
 			progressBar["Coal"] = 0;
 			progressBar[" Water"] = 0;
 			progressBar[" Metal"] = 0;
+
+			serverTimer.Reset();
         }
 
 		/// <summar
@@ -37,7 +39,7 @@ namespace GameServer
 			if (OverallProgress == 100)
             {
 				ServerSend.EndGame();
-				serverTimer.Reset();
+				Reset();
             }
 
 			newPlayerCount = 0;
@@ -56,7 +58,7 @@ namespace GameServer
             }
 			if (lastPlayerCount > 0 && newPlayerCount == 0)
             {
-				serverTimer.Reset();
+				Reset();
             }
 			lastPlayerCount = newPlayerCount;
 			serverTimer.Update();
