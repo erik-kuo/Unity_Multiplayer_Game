@@ -59,12 +59,11 @@ public class ClientSend : MonoBehaviour
 		}
 	}
 
-	public static void CPBUpdate(string _type, float _amount)
+	public static void CPBUpdate(string _type)
 	{
 		using (Packet _packet = new Packet((int)ClientPackets.CPBUpdate))
 		{
 			_packet.Write(_type);
-			_packet.Write(_amount);
 
 			SendTCPData(_packet);
 		}

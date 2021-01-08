@@ -42,7 +42,7 @@ namespace GameServer
 			string _type = _packet.ReadString();
 			float _amount = _packet.ReadFloat();
 
-			//GameLogic.progressBar[_type] = _amount;
+			GameLogic.progressBar[_type] = _amount;
 			ServerSend.CPBAmount(_type, _amount);
 		}
 		

@@ -19,7 +19,7 @@ public class explosionDamage : MonoBehaviour
 	}
 
 	void OnTriggerEnter2D(Collider2D collider){
-		if (collider.tag == "LocalPlayer") {
+		if (collider.tag == "LocalPlayer" || collider.tag == "Player") {
 			if (collider.gameObject.GetComponent<actionAni>() != null)
             {
 				collider.gameObject.GetComponent<actionAni>().getBombed();
