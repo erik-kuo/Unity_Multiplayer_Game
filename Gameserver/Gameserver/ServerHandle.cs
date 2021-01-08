@@ -81,5 +81,10 @@ namespace GameServer
 			Server.clients[_fromClient].player.characterMovement = _movement;
 		}
 
+		public static void AnimatorMovement(int _fromClient, Packet _packet)
+        {
+			Vector3 _movement = _packet.ReadVector3();
+			Server.clients[_fromClient].player.SetAnimatorMovement(_movement);
+        }
 	}
 }

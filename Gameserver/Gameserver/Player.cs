@@ -15,6 +15,7 @@ namespace GameServer
 
 		public Vector3 position;
 		public Vector3 position2D;
+		public Vector3 animatorMovement;
 		public Quaternion rotation;
 		public Quaternion weaponRotation;
 
@@ -37,6 +38,7 @@ namespace GameServer
             {
 				ServerSend.UpdateWeaponRotation(this);
             }
+			ServerSend.AnimatorMovement(this);
 		}
 
 		public void Set2DPosition(Vector3 _position, Quaternion _rotation)
@@ -44,6 +46,12 @@ namespace GameServer
 			position2D.X = _position.X;
 			position2D.Y = _position.Y;
 			rotation = _rotation;
+        }
+
+		public void SetAnimatorMovement(Vector3 _movement)
+        {
+			animatorMovement.X = _movement.X;
+			animatorMovement.Y = _movement.Y;
         }
 
 		public void SetWeaponUsing(bool _state)

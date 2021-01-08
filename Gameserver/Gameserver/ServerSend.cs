@@ -223,6 +223,17 @@ namespace GameServer
 				SendUDPDataToAll(_packet);
             }
         }
+
+		public static void AnimatorMovement(Player _player)
+        {
+			using (Packet _packet = new Packet((int)ServerPackets.animatorMovement))
+            {
+				_packet.Write(_player.id);
+				_packet.Write(_player.animatorMovement);
+				SendUDPDataToAll(_packet);
+            }
+
+		}
 		#endregion
 	}
 }

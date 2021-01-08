@@ -35,8 +35,8 @@ public class playerMovement : MonoBehaviour
 
 		movement.x = Input.GetAxisRaw("Horizontal");
 		movement.y = Input.GetAxisRaw("Vertical");
-		animator.SetFloat("Horizontal", movement.x);
-		animator.SetFloat("Vertical", movement.y);
+		ClientSend.AnimatorMovement(movement);
+
 
 		// Press G to take out or put back weapon
 		if (!gameObject.GetComponent<AstronautManager>().red)

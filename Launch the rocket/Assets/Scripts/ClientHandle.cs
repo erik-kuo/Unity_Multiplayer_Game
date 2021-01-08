@@ -154,4 +154,21 @@ public class ClientHandle : MonoBehaviour
 			}
 		}
 	}
+
+	public static void AnimatorMovement(Packet _packet)
+    {
+		int _id = _packet.ReadInt();
+		Vector3 _movement = _packet.ReadVector3();
+		if (GameManager.players.TryGetValue(_id, out PlayerManager _player))
+		{
+			if (GameManager.players[_id].astronaut.red)
+			{
+				GameManager.players[_id].astronaut.gameObject.GetComponent<actionAni>().movement = _movement;
+			}
+			else
+			{
+				GameManager.players[_id].astronaut.gameObject.GetComponent<BlueAni>().movement = _movement;
+			}
+		}
+	}
 }

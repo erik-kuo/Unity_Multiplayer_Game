@@ -314,6 +314,7 @@ public class Client : MonoBehaviour
 			{ (int)ServerPackets.endGame, ClientHandle.EndGame },
 			{ (int)ServerPackets.updateAnimation, ClientHandle.UpdateAnimation },
 			{ (int)ServerPackets.characterMovement, ClientHandle.CharacterMovement },
+			{ (int)ServerPackets.animatorMovement, ClientHandle.AnimatorMovement }
 		};
 		Debug.Log("Initialized packets.");
 	}

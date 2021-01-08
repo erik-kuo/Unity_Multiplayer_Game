@@ -121,8 +121,19 @@ public class ClientSend : MonoBehaviour
 		{
 			_packet.Write(_cs);
 
-			SendTCPData(_packet);
+			SendUDPData(_packet);
 		}
 	}
+	public static void AnimatorMovement(Vector2 _movement)
+    {
+		using (Packet _packet = new Packet((int)ClientPackets.animatorMovement))
+        {
+			_packet.Write(_movement);
+
+			SendUDPData(_packet);
+        }
+
+	}
+
 	#endregion
 }

@@ -19,6 +19,8 @@ public class actionAni : MonoBehaviour
 	public CPB coalSlider;
 	public CPB waterSlider;
 	public CPB metalSlider;
+
+	public Vector3 movement;
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -41,6 +43,8 @@ public class actionAni : MonoBehaviour
 	  if(cs == CharacterStats.Walk){
 		anim.SetBool("walk",true);
 	  }
+	anim.SetFloat("Horizontal", movement.x);
+	anim.SetFloat("Vertical", movement.y);
 	}
 
 	IEnumerator actionTime(){
@@ -60,52 +64,6 @@ public class actionAni : MonoBehaviour
 		rb.constraints &= ~RigidbodyConstraints2D.FreezePosition;
 	}
 
-	/*
-	// Start the animation while colliding and pressing Space
-	void OnCollisionStay2D(Collision2D aaa) //aaa為自定義碰撞事件
-	{
-		if (aaa.gameObject.tag == "Coal" && Input.GetKeyDown(KeyCode.Space)){
-			anim.SetBool("coal",true);
-			rb.constraints = RigidbodyConstraints2D.FreezePosition| RigidbodyConstraints2D.FreezeRotation;
-			anim.SetBool("increase_coal",true);
-			StartCoroutine(actionTime());
-		}
-		if (aaa.gameObject.tag == "Metal" && Input.GetKeyDown(KeyCode.Space)){
-		  anim.SetBool("metal",true);
-		  rb.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
-		  anim.SetBool("increase_metal",true);
-		  StartCoroutine(actionTime());
-		}
-		if (aaa.gameObject.tag == "lab" && Input.GetKeyDown(KeyCode.Space)){
-		  anim.SetBool("develop",false);
-		  if(anim.GetBool("increase_coal")){
-			//Vector3 _localCollection = new Vector3(increment,0,0);
-			coalSlider.UpdateAmount(increment);
-			anim.SetBool("increase_coal",false);
-		  }
-		  if(anim.GetBool("increase_metal")){
-			//Vector3 _localCollection = new Vector3(0,increment,0);
-			metalSlider.UpdateAmount(increment);
-			anim.SetBool("increase_metal",false);
-		  }
-		  if(anim.GetBool("increase_water")){
-			//Vector3 _localCollection = new Vector3(0, 0, increment);
-			waterSlider.UpdateAmount(increment);
-			anim.SetBool("increase_water",false);
-		  }
-		}
-
-	}
-	
-	void OnTriggerStay2D(Collider2D aaa){
-	  if (aaa.gameObject.tag == "Water" && Input.GetKeyDown(KeyCode.Space)){
-		anim.SetBool("water",true);
-		rb.constraints = RigidbodyConstraints2D.FreezePosition |RigidbodyConstraints2D.FreezeRotation;
-		anim.SetBool("increase_water",true);
-		StartCoroutine(actionTime());
-	  }
-	}
-	*/
 
 	public void UpdateAnimation(CharacterStats _cs)
 	{

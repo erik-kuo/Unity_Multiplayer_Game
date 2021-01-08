@@ -11,6 +11,7 @@ public class BlueAni : MonoBehaviour
 	public Animator anim;
 	public BlueCharacterStats cs;
 	public Rigidbody2D rb;
+	public Vector3 movement;
 
 	// Start is called before the first frame update
 	void Start()
@@ -35,6 +36,8 @@ public class BlueAni : MonoBehaviour
 	  if(cs == BlueCharacterStats.Walk){
 		anim.SetBool("walk",true);
 	  }
+	anim.SetFloat("Horizontal", movement.x);
+	anim.SetFloat("Vertical", movement.y);
 	}
 
 	IEnumerator BombActionTime()
