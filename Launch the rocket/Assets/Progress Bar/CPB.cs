@@ -17,7 +17,7 @@ public class CPB : MonoBehaviour
 	   currentAmount = 0;
    }
 
-   public void UpdateAmount(int amount)
+   public void UpdateAmount()
    {
 	   ClientSend.CPBUpdate(TextResource.gameObject.GetComponent<Text>().text);
 	}

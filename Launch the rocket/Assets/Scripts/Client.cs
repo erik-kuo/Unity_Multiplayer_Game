@@ -311,7 +311,8 @@ public class Client : MonoBehaviour
 			{ (int)ServerPackets.updateWeaponRotation, ClientHandle.UpdateWeaponRotation },
 			{ (int)ServerPackets.spawnProjectile, ClientHandle.SpawnProjectile },
 			{ (int)ServerPackets.spawnBomb, ClientHandle.SpawnBomb },
-			{ (int)ServerPackets.endGame, ClientHandle.EndGame }
+			{ (int)ServerPackets.endGame, ClientHandle.EndGame },
+			{ (int)ServerPackets.updateAnimation, ClientHandle.UpdateAnimation },
 		};
 		Debug.Log("Initialized packets.");
 	}

@@ -136,7 +136,8 @@ namespace GameServer
 				{ (int)ClientPackets.playerUsingWeapon, ServerHandle.PlayerUsingWeapon },
 				{ (int)ClientPackets.weaponRotation, ServerHandle.WeaponRotation },
 				{ (int)ClientPackets.playerShoot, ServerHandle.PlayerShoot },
-				{ (int)ClientPackets.playerDropbomb, ServerHandle.PlayerDropBomb }
+				{ (int)ClientPackets.playerDropbomb, ServerHandle.PlayerDropBomb },
+				{ (int)ClientPackets.characterStatus, ServerHandle.CharacterStatus },
 			};
 			Console.WriteLine("Initialized packets.");
 		}

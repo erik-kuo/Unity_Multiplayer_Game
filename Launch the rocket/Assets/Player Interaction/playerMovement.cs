@@ -77,4 +77,29 @@ public class playerMovement : MonoBehaviour
 		rigidbody2d.MovePosition(position);
 		ClientSend.Player2DPosition(position);
 	}
+
+	void OnTriggerStay2D(Collider2D aaa)
+	{
+		if (aaa.gameObject.tag == "Water" && Input.GetKeyDown(KeyCode.Space))
+		{
+			ClientSend.CharacterStatus((int)CharacterStats.Water);
+		}
+	}
+
+	void OnCollisionStay2D(Collision2D aaa) //aaa為自定義碰撞事件
+	{
+		if (aaa.gameObject.tag == "Coal" && Input.GetKeyDown(KeyCode.Space))
+		{
+			ClientSend.CharacterStatus((int)CharacterStats.Coal);
+		}
+		if (aaa.gameObject.tag == "Metal" && Input.GetKeyDown(KeyCode.Space))
+		{
+			ClientSend.CharacterStatus((int)CharacterStats.Metal);
+		}
+		if (aaa.gameObject.tag == "lab" && Input.GetKeyDown(KeyCode.Space))
+		{
+			ClientSend.CharacterStatus((int)CharacterStats.Lab);
+		}
+
+	}
 }
