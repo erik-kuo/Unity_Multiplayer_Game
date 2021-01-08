@@ -201,6 +201,15 @@ namespace GameServer
 				SendTCPDataToAll(_packet);
 			}
 		}
+		public static void UpdateAnimation(int _id, int _status)
+		{
+			using (Packet _packet = new Packet((int)ServerPackets.updateAnimation))
+			{
+				_packet.Write(_id);
+				_packet.Write(_status);
+				SendTCPDataToAll(_packet);
+			}
+		}
 		#endregion
 	}
 }
