@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
 	/// <param name="_red">The player's team.</param>
 	/// <param name="_position">The player's starting position.</param>
 	/// <param name="_rotation">The player's starting rotation.</param>
-	public void SpawnPlayer(int _id, bool _red, Vector3 _position, Quaternion _rotation)
+	public void SpawnPlayer(int _id, bool _red, Vector3 _position, Quaternion _rotation, float _timeRemaining)
 	{
 		GameObject _player;
 		if (_id == Client.instance.myId)
@@ -50,6 +50,13 @@ public class GameManager : MonoBehaviour
 			CPBs.Add("Coal", _player.transform.Find("HUD").Find("Coal Progress Bar").GetComponent<CPB>());
 			CPBs.Add(" Water", _player.transform.Find("HUD").Find("Water Progress Bar").GetComponent<CPB>());
 			CPBs.Add(" Metal", _player.transform.Find("HUD").Find("Metal Progress Bar").GetComponent<CPB>());
+			_player.transform.Find("HUD").Find("TImer counter").GetComponent<countdownTimer>().timeRemaining = _timeRemaining;
+			/*
+			if (_player.transform.Find("HUD").Find("TImer counter") == null)
+            {
+				Debug.Log("no counter");
+            }
+			*/
 		}
 		else
 		{
