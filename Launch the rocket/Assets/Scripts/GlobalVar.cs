@@ -4,8 +4,9 @@ using UnityEngine;
 
 public static class GlobalVar
 {
-    private static string ip;
-    public static string IP
+	private static string ip;
+
+	public static string IP
     {
         get
         {

@@ -46,13 +46,7 @@ public class Client : MonoBehaviour
 	/// <summary>Attempts to connect to the server.</summary>
 	public void ConnectToServer()
 	{
-		if (start.instance != null)
-		{
-			if (start.instance.IPaddress.text != "")
-            {
-				instance.ip = start.instance.IPaddress.text;
-			}
-		}
+		instance.ip = GlobalVar.IP;
 		Debug.Log($"IP: {instance.ip}.");
 		tcp = new TCP();
 		udp = new UDP();
@@ -317,6 +311,7 @@ public class Client : MonoBehaviour
 			{ (int)ServerPackets.updateWeaponRotation, ClientHandle.UpdateWeaponRotation },
 			{ (int)ServerPackets.spawnProjectile, ClientHandle.SpawnProjectile },
 			{ (int)ServerPackets.spawnBomb, ClientHandle.SpawnBomb },
+			{ (int)ServerPackets.endGame, ClientHandle.EndGame }
 		};
 		Debug.Log("Initialized packets.");
 	}

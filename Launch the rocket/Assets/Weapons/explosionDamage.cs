@@ -20,7 +20,15 @@ public class explosionDamage : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D collider){
 		if (collider.tag == "LocalPlayer") {
-			collider.gameObject.GetComponent<droppingBomb> ().getBombed ();
+			if (collider.gameObject.GetComponent<actionAni>() != null)
+            {
+				collider.gameObject.GetComponent<actionAni>().getBombed();
+            }
+			if (collider.gameObject.GetComponent<BlueAni>() != null)
+			{
+				collider.gameObject.GetComponent<BlueAni>().getBombed();
+			}
+			//collider.gameObject.GetComponent<droppingBomb> ().getBombed ();
 			//bullet.GetComponent<Projectile> ().DestroyProjectile();
 		}
 	}

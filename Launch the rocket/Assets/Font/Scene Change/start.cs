@@ -28,6 +28,7 @@ public class start : MonoBehaviour
 
     public void ClickEvent()
     {
+        GlobalVar.IP = IPaddress.text;
         //切換Scene
         SceneManager.LoadScene (sceneIndex);
     }

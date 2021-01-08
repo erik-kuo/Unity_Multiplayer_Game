@@ -32,8 +32,9 @@ public class ClientHandle : MonoBehaviour
 		bool _red = _packet.ReadBool();
 		Vector3 _position = _packet.ReadVector3();
 		Quaternion _rotation = _packet.ReadQuaternion();
+		float _timeRemaining = _packet.ReadFloat();
 
-		GameManager.instance.SpawnPlayer(_id, _red, _position, _rotation);
+		GameManager.instance.SpawnPlayer(_id, _red, _position, _rotation, _timeRemaining);
 	}
 	
 	public static void PlayerTransform(Packet _packet)
@@ -106,7 +107,13 @@ public class ClientHandle : MonoBehaviour
 	{
 		int _playerId = _packet.ReadInt();
 
-		GameManager.players[_playerId].astronaut.gameObject.GetComponent<droppingBomb>().DropBomb();
+		GameManager.players[_playerId].astronaut.DropBomb();
+	}
+
+	public static void EndGame(Packet _packet)
+	{
+		Debug.Log("EndGame!");
+		Application.Quit();
 	}
 	/*
 	public static void ProjectilePosition(Packet _packet)

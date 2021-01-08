@@ -17,7 +17,7 @@ public class droppingBomb : MonoBehaviour
 		Instantiate(bombPrefab,this.gameObject.transform.position,Quaternion.identity);
 	}
 
-	IEnumerator actionTime(){
+	IEnumerator BombActionTime(){
 		yield return new WaitForSeconds(2);
 		player.SetBool("isBombed",false);
 		rb.constraints &= ~RigidbodyConstraints2D.FreezePosition;
@@ -29,6 +29,6 @@ public class droppingBomb : MonoBehaviour
 		player.SetBool("increase_coal",false);
 		player.SetBool("isBombed",true);
 		rb.constraints = RigidbodyConstraints2D.FreezePosition |RigidbodyConstraints2D.FreezeRotation;
-		StartCoroutine(actionTime());
+		StartCoroutine(BombActionTime());
 	}
 }

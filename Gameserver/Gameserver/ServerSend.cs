@@ -103,7 +103,7 @@ namespace GameServer
 		/// <summary>Tells a client to spawn a player.</summary>
 		/// <param name="_toClient">The client that should spawn the player.</param>
 		/// <param name="_player">The player to spawn.</param>
-		public static void SpawnPlayer(int _toClient, Player _player)
+		public static void SpawnPlayer(int _toClient, Player _player, float _timeRemaining)
 		{
 			using (Packet _packet = new Packet((int)ServerPackets.spawnPlayer))
 			{
@@ -111,6 +111,7 @@ namespace GameServer
 				_packet.Write(_player.red);
 				_packet.Write(_player.position);
 				_packet.Write(_player.rotation);
+				_packet.Write(_timeRemaining);
 
 				SendTCPData(_toClient, _packet);
 			}
@@ -189,6 +190,14 @@ namespace GameServer
 			{
 				_packet.Write(_id);
 
+				SendTCPDataToAll(_packet);
+			}
+		}
+
+		public static void EndGame()
+		{
+			using (Packet _packet = new Packet((int)ServerPackets.endGame))
+			{
 				SendTCPDataToAll(_packet);
 			}
 		}
