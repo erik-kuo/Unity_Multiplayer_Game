@@ -122,51 +122,15 @@ public class ClientHandle : MonoBehaviour
 		}
 		#endif
 	}
-	/*
-	public static void ProjectilePosition(Packet _packet)
-	{
-		int _projectileId = _packet.ReadInt();
-		Vector3 _position = _packet.ReadVector3();
+	
+	public static void UpdateAnimation(Packet _packet)
+    {
+		int _id = _packet.ReadInt();
+		int _cs = _packet.ReadInt();
 
-		if (GameManager.projectiles.TryGetValue(_projectileId, out ProjectileManager _projectile))
-		{
-			_projectile.transform.position = _position;
-		}
-	}
-
-	public static void ProjectileExploded(Packet _packet)
-	{
-		int _projectileId = _packet.ReadInt();
-		Vector3 _position = _packet.ReadVector3();
-
-		GameManager.projectiles[_projectileId].Explode(_position);
-	}
-
-	public static void SpawnEnemy(Packet _packet)
-	{
-		int _enemyId = _packet.ReadInt();
-		Vector3 _position = _packet.ReadVector3();
-
-		GameManager.instance.SpawnEnemy(_enemyId, _position);
-	}
-
-	public static void EnemyPosition(Packet _packet)
-	{
-		int _enemyId = _packet.ReadInt();
-		Vector3 _position = _packet.ReadVector3();
-
-		if (GameManager.enemies.TryGetValue(_enemyId, out EnemyManager _enemy))
-		{
-			_enemy.transform.position = _position;
-		}
-	}
-
-	public static void EnemyHealth(Packet _packet)
-	{
-		int _enemyId = _packet.ReadInt();
-		float _health = _packet.ReadFloat();
-
-		GameManager.enemies[_enemyId].SetHealth(_health);
-	}
-	*/
+		if (GameManager.players[_id].astronaut.red)
+        {
+			GameManager.players[_id].astronaut.gameObject.GetComponent<actionAni>().UpdateAnimation((CharacterStats)_cs);
+        }
+    }
 }

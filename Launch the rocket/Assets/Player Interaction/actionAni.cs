@@ -5,7 +5,7 @@ using System;
 using System.Threading;
 
 public enum CharacterStats{
-  Idle =0, Walk = 1, Coal = 2, Metal = 3, Water = 4, Bomb = 5,
+  Idle =0, Walk = 1, Coal = 2, Metal = 3, Water = 4, Lab = 5,
 }
 
 public class actionAni : MonoBehaviour
@@ -60,6 +60,7 @@ public class actionAni : MonoBehaviour
 		rb.constraints &= ~RigidbodyConstraints2D.FreezePosition;
 	}
 
+	/*
 	// Start the animation while colliding and pressing Space
 	void OnCollisionStay2D(Collision2D aaa) //aaa為自定義碰撞事件
 	{
@@ -95,6 +96,7 @@ public class actionAni : MonoBehaviour
 		}
 
 	}
+	
 	void OnTriggerStay2D(Collider2D aaa){
 	  if (aaa.gameObject.tag == "Water" && Input.GetKeyDown(KeyCode.Space)){
 		anim.SetBool("water",true);
@@ -102,6 +104,59 @@ public class actionAni : MonoBehaviour
 		anim.SetBool("increase_water",true);
 		StartCoroutine(actionTime());
 	  }
+	}
+	*/
+
+	public void UpdateAnimation(CharacterStats _cs)
+	{
+		switch (_cs)
+		{
+			case CharacterStats.Water:
+				anim.SetBool("water", true);
+				rb.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
+				anim.SetBool("increase_water", true);
+				StartCoroutine(actionTime());
+				break;
+			case CharacterStats.Coal:
+				anim.SetBool("coal", true);
+				rb.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
+				anim.SetBool("increase_coal", true);
+				StartCoroutine(actionTime());
+				break;
+			case CharacterStats.Metal:
+				anim.SetBool("metal", true);
+				rb.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
+				anim.SetBool("increase_metal", true);
+				StartCoroutine(actionTime());
+				break;
+			case CharacterStats.Lab:
+				anim.SetBool("develop", false);
+				if (anim.GetBool("increase_coal"))
+				{
+					if (gameObject.tag == "LocalPlayer")
+                    {
+						coalSlider.UpdateAmount();
+					}
+					anim.SetBool("increase_coal", false);
+				}
+				if (anim.GetBool("increase_metal"))
+				{
+					if (gameObject.tag == "LocalPlayer")
+					{
+						metalSlider.UpdateAmount();
+					}
+					anim.SetBool("increase_metal", false);
+				}
+				if (anim.GetBool("increase_water"))
+				{
+					if (gameObject.tag == "LocalPlayer")
+					{
+						waterSlider.UpdateAmount();
+					}
+					anim.SetBool("increase_water", false);
+				}
+				break;
+		}
 	}
 
 	public void getBombed()
