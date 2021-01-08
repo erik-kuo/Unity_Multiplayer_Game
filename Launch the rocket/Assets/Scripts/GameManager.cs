@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
 	/// <param name="_red">The player's team.</param>
 	/// <param name="_position">The player's starting position.</param>
 	/// <param name="_rotation">The player's starting rotation.</param>
-	public void SpawnPlayer(int _id, bool _red, Vector3 _position, Quaternion _rotation, float _timeRemaining)
+	public void SpawnPlayer(int _id, bool _red, Vector3 _position, Quaternion _rotation, float _timeRemaining, int _cs)
 	{
 		GameObject _player;
 		if (_id == Client.instance.myId)
@@ -51,12 +51,6 @@ public class GameManager : MonoBehaviour
 			CPBs.Add(" Water", _player.transform.Find("HUD").Find("Water Progress Bar").GetComponent<CPB>());
 			CPBs.Add(" Metal", _player.transform.Find("HUD").Find("Metal Progress Bar").GetComponent<CPB>());
 			_player.transform.Find("HUD").Find("TImer counter").GetComponent<countdownTimer>().timeRemaining = _timeRemaining;
-			/*
-			if (_player.transform.Find("HUD").Find("TImer counter") == null)
-            {
-				Debug.Log("no counter");
-            }
-			*/
 		}
 		else
 		{
@@ -72,5 +66,6 @@ public class GameManager : MonoBehaviour
 
 		_player.GetComponent<PlayerManager>().Initialize(_id, _red);
 		players.Add(_id, _player.GetComponent<PlayerManager>());
+		players[_id].astronaut.gameObject.GetComponent<actionAni>().UpdateAnimation((CharacterStats)_cs);
 	}
 }

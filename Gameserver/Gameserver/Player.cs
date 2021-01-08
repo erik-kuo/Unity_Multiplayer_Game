@@ -10,6 +10,7 @@ namespace GameServer
 		public int id;
 		public bool red;
 		public bool isUsingWeapon = false;
+		public int charaterStatus = 0;
 
 		public Vector3 position;
 		public Vector3 position2D;

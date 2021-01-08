@@ -34,8 +34,9 @@ public class ClientHandle : MonoBehaviour
 		Vector3 _position = _packet.ReadVector3();
 		Quaternion _rotation = _packet.ReadQuaternion();
 		float _timeRemaining = _packet.ReadFloat();
+		int _cs = _packet.ReadInt();
 
-		GameManager.instance.SpawnPlayer(_id, _red, _position, _rotation, _timeRemaining);
+		GameManager.instance.SpawnPlayer(_id, _red, _position, _rotation, _timeRemaining, _cs);
 	}
 	
 	public static void PlayerTransform(Packet _packet)
