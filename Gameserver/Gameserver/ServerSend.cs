@@ -211,6 +211,16 @@ namespace GameServer
 				SendTCPDataToAll(_packet);
 			}
 		}
+
+		public static void CharacterMovement(Player _player)
+        {
+			using (Packet _packet = new Packet((int)ServerPackets.characterMovement))
+            {
+				_packet.Write(_player.id);
+				_packet.Write(_player.characterMovement);
+				SendUDPDataToAll(_packet);
+            }
+        }
 		#endregion
 	}
 }
