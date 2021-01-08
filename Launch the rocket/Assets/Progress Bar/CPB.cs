@@ -19,15 +19,7 @@ public class CPB : MonoBehaviour
 
    public void UpdateAmount(int amount)
    {
-	   if (currentAmount < 100)
-	   {
-		   currentAmount += amount;
-		   TextIndicator.GetComponent<Text>().text = ((int)currentAmount).ToString()+"%";
-		   TextResource.gameObject.SetActive(true);
-
-	   }
-	   LoadingBar.GetComponent<Image>().fillAmount = currentAmount / 100;
-	   ClientSend.CPBUpdate(TextResource.gameObject.GetComponent<Text>().text, currentAmount);
+	   ClientSend.CPBUpdate(TextResource.gameObject.GetComponent<Text>().text);
 	}
 
 	public void SetAmount(float _amount)
