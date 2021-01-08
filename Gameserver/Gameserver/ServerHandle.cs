@@ -42,7 +42,7 @@ namespace GameServer
 			string _type = _packet.ReadString();
 
 			GameLogic.progressBar[_type] += Constants.PROGRESS_STEP;
-			ServerSend.CPBAmount(_type);
+			ServerSend.CPBAmount(_type, GameLogic.progressBar[_type]);
 		}
 		
 		public static void PlayerUsingWeapon(int _fromClient, Packet _packet)
