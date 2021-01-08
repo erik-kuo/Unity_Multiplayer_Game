@@ -19,6 +19,14 @@ namespace GameServer
 			progressBar.Add(" Water", 0);
 			progressBar.Add(" Metal", 0);
         }
+
+		public static void Reset()
+        {
+			progressBar["Coal"] = 0;
+			progressBar[" Water"] = 0;
+			progressBar[" Metal"] = 0;
+        }
+
 		/// <summar
 		/// y>Runs all game logic.</summary>
 		public static void Update()
