@@ -44,9 +44,6 @@ public class BlueAni : MonoBehaviour
 
 	public void getBombed()
 	{
-		anim.SetBool("increase_metal", false);
-		anim.SetBool("increase_water", false);
-		anim.SetBool("increase_coal", false);
 		anim.SetBool("isBombed", true);
 		rb.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
 		StartCoroutine(BombActionTime());

@@ -34,7 +34,7 @@ public class actionAni : MonoBehaviour
 	  }else if(Input.GetButtonUp("Horizontal")||Input.GetButtonUp("Vertical")){
 		cs = CharacterStats.Idle;
 	  }
-		Debug.Log($"Character stats: {cs}.");
+		//Debug.Log($"Character stats: {cs}.");
 	  if(cs == CharacterStats.Idle){
 		anim.SetBool("walk",false);
 	  }

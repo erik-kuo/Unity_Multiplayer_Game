@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Net;
+using UnityEditor;
 using UnityEngine;
 
 public class ClientHandle : MonoBehaviour
@@ -114,6 +115,12 @@ public class ClientHandle : MonoBehaviour
 	{
 		Debug.Log("EndGame!");
 		Application.Quit();
+		#if UNITY_EDITOR
+		if (EditorApplication.isPlaying)
+		{
+			UnityEditor.EditorApplication.isPlaying = false;
+		}
+		#endif
 	}
 	/*
 	public static void ProjectilePosition(Packet _packet)

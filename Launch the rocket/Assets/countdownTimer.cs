@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class countdownTimer : MonoBehaviour
 {
-    public float timeRemaining = 10;
+    public float timeRemaining = 300;
     public bool timerIsRunning = false;
     public Text timeText;
 
