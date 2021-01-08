@@ -113,6 +113,8 @@ namespace GameServer
 				_packet.Write(_player.rotation);
 				_packet.Write(_timeRemaining);
 				_packet.Write(_player.charaterStatus);
+				_packet.Write(_player.isUsingWeapon);
+				_packet.Write(_player.weaponRotation);
 
 				SendTCPData(_toClient, _packet);
 			}
