@@ -140,14 +140,16 @@ public class ClientHandle : MonoBehaviour
 	{
 		int _id = _packet.ReadInt();
 		int _movement = _packet.ReadInt();
-
-		if (GameManager.players[_id].astronaut.red)
-		{
-			GameManager.players[_id].astronaut.gameObject.GetComponent<actionAni>().cs = (CharacterStats)_movement;
-		}
-		else
+		if (GameManager.players.TryGetValue(_id, out PlayerManager _player))
         {
-			GameManager.players[_id].astronaut.gameObject.GetComponent<BlueAni>().cs = (BlueCharacterStats)_movement;
+			if (GameManager.players[_id].astronaut.red)
+			{
+				GameManager.players[_id].astronaut.gameObject.GetComponent<actionAni>().cs = (CharacterStats)_movement;
+			}
+			else
+			{
+				GameManager.players[_id].astronaut.gameObject.GetComponent<BlueAni>().cs = (BlueCharacterStats)_movement;
+			}
 		}
 	}
 }
