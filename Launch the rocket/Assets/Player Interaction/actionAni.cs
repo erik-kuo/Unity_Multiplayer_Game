@@ -74,21 +74,18 @@ public class actionAni : MonoBehaviour
 				rb.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
 				anim.SetBool("increase_water", true);
 				StartCoroutine(actionTime());
-				Debug.Log($"Finish Water animation.");
 				break;
 			case CharacterStats.Coal:
 				anim.SetBool("coal", true);
 				rb.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
 				anim.SetBool("increase_coal", true);
 				StartCoroutine(actionTime());
-				Debug.Log($"Finish Coal animation.");
 				break;
 			case CharacterStats.Metal:
 				anim.SetBool("metal", true);
 				rb.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
 				anim.SetBool("increase_metal", true);
 				StartCoroutine(actionTime());
-				Debug.Log($"Finish Metal animation.");
 				break;
 			case CharacterStats.Lab:
 				anim.SetBool("develop", false);
@@ -116,7 +113,6 @@ public class actionAni : MonoBehaviour
 					}
 					anim.SetBool("increase_water", false);
 				}
-				Debug.Log($"Finish Lab animation.");
 				break;
 		}
 	}
