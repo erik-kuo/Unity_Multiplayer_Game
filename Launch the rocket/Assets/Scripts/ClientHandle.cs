@@ -107,7 +107,7 @@ public class ClientHandle : MonoBehaviour
 	{
 		int _playerId = _packet.ReadInt();
 
-		GameManager.players[_playerId].astronaut.gameObject.GetComponent<droppingBomb>().DropBomb();
+		GameManager.players[_playerId].astronaut.DropBomb();
 	}
 
 	public static void EndGame(Packet _packet)

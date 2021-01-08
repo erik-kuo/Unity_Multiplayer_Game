@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: 799648371616501381}
   - component: {fileID: 799648371616501383}
   - component: {fileID: 799648371616501380}
-  - component: {fileID: 6094798384567109947}
   - component: {fileID: 1904926771743632725}
   m_Layer: 0
   m_Name: Astronaut
@@ -211,22 +210,6 @@ MonoBehaviour:
   coalSlider: {fileID: 7789632938591984039}
   waterSlider: {fileID: 7789632937742127571}
   metalSlider: {fileID: 7789632938283199969}
---- !u!114 &6094798384567109947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 799648371616501404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 013680989fa224ad9a6966996c3ff0fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bombPrefab: {fileID: 2078506243211806495, guid: c3e1990964fbe4616995367b291a165e,
-    type: 3}
-  player: {fileID: 799648371616501377}
-  rb: {fileID: 799648371616501378}
 --- !u!114 &1904926771743632725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,6 +222,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8acf2d60bab43cc4cbdacabb54b27692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bombPrefab: {fileID: 2078506243211806495, guid: c3e1990964fbe4616995367b291a165e,
+    type: 3}
   gun: {fileID: 0}
   weaponSpawnPoint: {fileID: 0}
   red: 1

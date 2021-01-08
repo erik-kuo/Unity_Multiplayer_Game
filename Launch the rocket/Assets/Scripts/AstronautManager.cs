@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AstronautManager : MonoBehaviour
 {
+	[SerializeField] private GameObject bombPrefab;
 	public GameObject gun;
 	public Transform weaponSpawnPoint;
 	public bool red;
@@ -41,4 +42,9 @@ public class AstronautManager : MonoBehaviour
     {
 		currentWeapon.GetComponent<Weapon>().Shoot();
     }
+
+	public void DropBomb()
+	{
+		Instantiate(bombPrefab, this.gameObject.transform.position, Quaternion.identity);
+	}
 }

@@ -53,6 +53,13 @@ public class actionAni : MonoBehaviour
 	  rb.constraints &= ~RigidbodyConstraints2D.FreezePosition;
 	}
 
+	IEnumerator BombActionTime()
+	{
+		yield return new WaitForSeconds(2);
+		anim.SetBool("isBombed", false);
+		rb.constraints &= ~RigidbodyConstraints2D.FreezePosition;
+	}
+
 	// Start the animation while colliding and pressing Space
 	void OnCollisionStay2D(Collision2D aaa) //aaa為自定義碰撞事件
 	{
@@ -95,5 +102,15 @@ public class actionAni : MonoBehaviour
 		anim.SetBool("increase_water",true);
 		StartCoroutine(actionTime());
 	  }
+	}
+
+	public void getBombed()
+	{
+		anim.SetBool("increase_metal", false);
+		anim.SetBool("increase_water", false);
+		anim.SetBool("increase_coal", false);
+		anim.SetBool("isBombed", true);
+		rb.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
+		StartCoroutine(BombActionTime());
 	}
 }
