@@ -104,6 +104,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   animator: {fileID: 2766001248697409508}
+  startTimeBtwShots: 0.25
+  offset: -20
 --- !u!50 &2766001248697409511
 Rigidbody2D:
   serializedVersion: 4
