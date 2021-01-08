@@ -313,6 +313,7 @@ public class Client : MonoBehaviour
 			{ (int)ServerPackets.spawnBomb, ClientHandle.SpawnBomb },
 			{ (int)ServerPackets.endGame, ClientHandle.EndGame },
 			{ (int)ServerPackets.updateAnimation, ClientHandle.UpdateAnimation },
+			{ (int)ServerPackets.characterMovement, ClientHandle.CharacterMovement },
 		};
 		Debug.Log("Initialized packets.");
 	}

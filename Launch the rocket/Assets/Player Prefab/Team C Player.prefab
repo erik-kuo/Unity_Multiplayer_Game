@@ -205,7 +205,7 @@ MonoBehaviour:
   anim: {fileID: 799648371616501377}
   animation: {fileID: 0}
   cs: 0
-  rb: {fileID: 0}
+  rb: {fileID: 799648371616501378}
   increment: 10
   coalSlider: {fileID: 7789632938591984039}
   waterSlider: {fileID: 7789632937742127571}

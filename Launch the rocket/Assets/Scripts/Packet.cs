@@ -18,7 +18,8 @@ public enum ServerPackets
 	spawnProjectile,
 	spawnBomb,
 	endGame,
-	updateAnimation
+	updateAnimation,
+	characterMovement
 }
 
 /// <summary>Sent from client to server.</summary>
@@ -32,7 +33,8 @@ public enum ClientPackets
 	weaponRotation,
 	playerShoot,
 	playerDropbomb,
-	characterStatus
+	characterStatus,
+	characterMovement
 }
 
 public class Packet : IDisposable
