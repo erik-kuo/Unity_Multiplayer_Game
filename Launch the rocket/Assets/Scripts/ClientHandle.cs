@@ -35,8 +35,10 @@ public class ClientHandle : MonoBehaviour
 		Quaternion _rotation = _packet.ReadQuaternion();
 		float _timeRemaining = _packet.ReadFloat();
 		int _cs = _packet.ReadInt();
+		bool _isUsingWeapon = _packet.ReadBool();
+		Quaternion _weaponRotation = _packet.ReadQuaternion();
 
-		GameManager.instance.SpawnPlayer(_id, _red, _position, _rotation, _timeRemaining, _cs);
+		GameManager.instance.SpawnPlayer(_id, _red, _position, _rotation, _timeRemaining, _cs, _isUsingWeapon, _weaponRotation);
 	}
 	
 	public static void PlayerTransform(Packet _packet)
@@ -130,9 +132,9 @@ public class ClientHandle : MonoBehaviour
 		int _cs = _packet.ReadInt();
 
 		if (GameManager.players[_id].astronaut.red)
-        {
-			GameManager.players[_id].astronaut.gameObject.GetComponent<actionAni>().UpdateAnimation((CharacterStats)_cs);
+		{
 			Debug.Log($"Update player {_id} {(CharacterStats)_cs} animation ");
+			GameManager.players[_id].astronaut.gameObject.GetComponent<actionAni>().UpdateAnimation((CharacterStats)_cs);
 		}
     }
 

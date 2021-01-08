@@ -30,6 +30,11 @@ public class explosionDamage : MonoBehaviour
 			}
 			//collider.gameObject.GetComponent<droppingBomb> ().getBombed ();
 			//bullet.GetComponent<Projectile> ().DestroyProjectile();
+			if (gameObject.GetComponent<Projectile>() != null)
+            {
+				gameObject.GetComponent<Projectile>().DestroyProjectile();
+
+			}
 		}
 	}
 }
