@@ -68,5 +68,11 @@ namespace GameServer
 		{
 			ServerSend.SpawnBomb(_fromClient);
 		}
+
+		public static void CharacterStatus(int _fromClient, Packet _packet)
+        {
+			int _status = _packet.ReadInt();
+			ServerSend.UpdateAnimation(_fromClient, _status);
+        }
 	}
 }

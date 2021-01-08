@@ -19,6 +19,7 @@ namespace GameServer
 		spawnProjectile,
 		spawnBomb,
 		endGame,
+		updateAnimation
 	}
 
 	/// <summary>Sent from client to server.</summary>
@@ -31,7 +32,8 @@ namespace GameServer
 		playerUsingWeapon,
 		weaponRotation,
 		playerShoot,
-		playerDropbomb
+		playerDropbomb,
+		characterStatus
 	}
 
 	public class Packet : IDisposable
