@@ -40,10 +40,9 @@ namespace GameServer
 		public static void CPBUpdate(int _fromClient, Packet _packet)
 		{
 			string _type = _packet.ReadString();
-			float _amount = _packet.ReadFloat();
 
-			//GameLogic.progressBar[_type] = _amount;
-			ServerSend.CPBAmount(_type, _amount);
+			GameLogic.progressBar[_type] += Constants.PROGRESS_STEP;
+			ServerSend.CPBAmount(_type);
 		}
 		
 		public static void PlayerUsingWeapon(int _fromClient, Packet _packet)
