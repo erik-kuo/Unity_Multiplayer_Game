@@ -11,6 +11,7 @@ namespace GameServer
 		public bool red;
 		public bool isUsingWeapon = false;
 		public int charaterStatus = 0;
+		public int characterMovement = 0;
 
 		public Vector3 position;
 		public Vector3 position2D;
@@ -31,6 +32,7 @@ namespace GameServer
 		public void Update()
 		{
 			ServerSend.PlayerTransform(this);
+			ServerSend.CharacterMovement(this);
 			if (isUsingWeapon)
             {
 				ServerSend.UpdateWeaponRotation(this);
@@ -60,5 +62,6 @@ namespace GameServer
         {
 			weaponRotation = _rotation;
         }
+
 	}
 }
