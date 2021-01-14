@@ -8,6 +8,8 @@ Blue team : stop red team from launching the rocket in 5 minutes
 ## GameServer
 Run the Server project first
 
+Using .Net5.0
+Change server IP in Constant.cs
 Connection port on 26950
 
 ## Launch the Rocket
